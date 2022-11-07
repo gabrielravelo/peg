@@ -1,0 +1,28 @@
+// Fonts
+// @import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Bootstrap
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Base
+@import 'base/globales';
+@import 'base/mixins';
+@import 'base/normalize';
+@import 'base/tipografia';
+@import 'base/variables';
+
+// Componentes
+@import 'componentes/formulario';
+@import 'componentes/botones';
+@import 'componentes/acciones';
+@import 'componentes/alertas';
+@import 'componentes/tabs';
+@import 'componentes/paginacion';
+
+// // Layout
+@import 'layout/ui';
+@import 'layout/cita';
+@import 'layout/servicios';
+@import 'layout/resumen';
