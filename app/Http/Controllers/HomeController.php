@@ -26,10 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         $usuario = Auth::user();
-        $servicios = Servicios::all();
+        // $servicios = Servicios::all();
 
         // return $servicios;
 
-        return view('/home', compact('usuario', 'servicios'));
+        return view('/home', compact('usuario'));
     }
 }
