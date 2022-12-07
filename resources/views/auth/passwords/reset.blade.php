@@ -1,7 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+    <h1>Restablecer contraseña</h1>
+
+    <form action="{{ route('password.update') }}" method="POST" class="formulario" novalidate>
+        @csrf
+
+        <input type="hidden" name="token" value="{{ $token }}">
+
+        @error('email')
+            <span class="alerta error">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+
+        @error('password')
+            <span class="alerta error">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+
+        <div class="campo">
+            <label for="email">{{ __('Email') }}</label>
+
+            <input id="id" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" autocomplete="email" autofocus placeholder="Tu email">
+        </div>
+
+        <div class="campo">
+            <label for="password">{{ __('Password') }}</label>
+
+            <input id="password" type="password" @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Tu contraseña">
+        </div>
+
+        <div class="campo">
+            <label for="password-confirm">{{ __('Confirm Password') }}</label>
+
+            <input id="password-confirm" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Confirmar contraseña">
+        </div>
+
+        <div class="centrado">
+            <input class="boton" type="submit" value="{{ __('Reset Password') }}">
+        </div>
+
+    </form>
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -19,11 +62,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+
                             </div>
                         </div>
 
@@ -33,11 +72,7 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+
                             </div>
                         </div>
 
@@ -61,5 +96,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

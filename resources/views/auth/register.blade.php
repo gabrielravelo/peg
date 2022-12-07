@@ -5,7 +5,7 @@
     <h1 class="nombre-pagina">Crear cuenta</h1>
     <p class="descripcion-pagina">Llena el siguiente formulario para crear una cuenta</p>
 
-    <form method="POST" action="{{ route('register') }}" novalidate>
+    <form method="POST" action="{{ route('register') }}" class="formulario" novalidate>
         @csrf
 
         @error('nombre')

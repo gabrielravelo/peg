@@ -29,5 +29,9 @@
         </div>
     </div>
 
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    <script src="/js/sweetalert2.all.min.js"></script>
+
+    @yield('scripts')
 </body>
 </html>
