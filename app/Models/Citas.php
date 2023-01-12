@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Servicios;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Citas extends Model
 {
@@ -17,4 +18,9 @@ class Citas extends Model
         'hora',
         'usuario_id'
     ];
+
+    public function citasServicios()
+    {
+        return $this->belongsToMany(Servicios::class, 'citas_servicios', 'cita_id', 'servicio_id');
+    }
 }

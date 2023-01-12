@@ -32,3 +32,5 @@ Route::post('/home/servicios-createServicio', [ServiciosController::class, 'crea
 Route::get('/home/servicios-edit/{servicio_id}', [ServiciosController::class, 'formularioEditarServicio'])->name('servicios.edit');
 Route::put('/home/servicios-edit/editServicio/{servicio_id}', [ServiciosController::class, 'editarservicios'])->name('servicio.editServicio');
 Route::delete('/home/eliminar-servicio/{servicio_id}', [ServiciosController::class, 'eliminarServicio'])->name('servicios.delete');
+Route::get('/home/citas', [HomeController::class, 'citas'])->name('citas');
+Route::delete('/home/citas/eliminar-cita/{cita_id}', [HomeController::class, 'eliminarCitaUsuario'])->name('citas.eliminar-cita');

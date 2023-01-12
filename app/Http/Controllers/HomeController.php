@@ -69,4 +69,37 @@ class HomeController extends Controller
 
         return redirect()->route('home')->with('eliminar', 'ok');
     }
+
+    public function citas()
+    {
+        // datos del usuario
+        $usuario = Auth::user();
+        $citas = Citas::where('usuario_id', $usuario->usuario_id)->get();
+
+        return view('citas', compact('usuario', 'citas'));
+    }
+
+    public function eliminarCitaUsuario($cita_id)
+    {
+        $cita = Citas::find($cita_id);
+        $servicios_cita = CitasServicios::where('cita_id', $cita_id)->get();
+
+        DB::beginTransaction();
+        try {
+            // Eliminar los servicios en citas_servicios
+            foreach($servicios_cita as $servicio) {
+                $servicio->delete();
+            }
+
+            // Eliminar la cita
+            $cita->delete();
+
+            DB::commit();
+        } catch (\Throwable $e) {
+            DB::rollback();
+
+        }
+
+        return redirect()->route('citas')->with('eliminar', 'ok');
+    }
 }

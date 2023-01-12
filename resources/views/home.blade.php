@@ -13,6 +13,9 @@
 
         <h1 class="nombre-pagina">Crear nueva cita</h1>
         <p class="descripcion-pagina">Elige tus servicios y escribe tus datos</p>
+        <div class="lil-baby">
+            <a href="{{ route('citas') }}" class="boton">Ver Citas</a>
+        </div>
 
         <div id="app">
 
